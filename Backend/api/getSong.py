@@ -1,9 +1,10 @@
 import requests
 from pydub import AudioSegment
 from shazamio import Shazam
+from decouple import config
 
 # Shazam API credentials
-API_KEY = 'YOUR_SHAZAM_API_KEY'
+API_KEY = config('SHAZAM_API_KEY')
 
 def identify_song(audio_file_path):
     # Load the audio file
@@ -12,7 +13,6 @@ def identify_song(audio_file_path):
     # Convert audio to WAV format (Shazam API requires WAV format)
     audio = audio.set_channels(1).set_frame_rate(16000)
 
-    # Initialize Shazam API
     shazam = Shazam(API_KEY)
 
     # Identify the song
@@ -21,7 +21,7 @@ def identify_song(audio_file_path):
     return song_info
 
 def main():
-    audio_file_path = 'your_audio_file.mp3'
+    audio_file_path = '../output.wav'
     song_info = identify_song(audio_file_path)
 
     if song_info:
