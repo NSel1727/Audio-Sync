@@ -62,3 +62,34 @@
   background-color: rgb(6, 150, 102) !important; /* Green */
   color: white;
 }
+
+.leftPanel{
+  float: left;
+  width: 10%;
+  margin-top: -10px;
+} 
+
+.rightPanel{
+  margin-left: 200px;
+}
+
+.currentSong{
+  text-align: left;
+}
+
+.stopButton{
+  margin-top: 100px;
+  margin-left: 50%;
+  width: 60px;
+}
+
+.songTable{
+  overflow: scroll;
+  margin-top: 50px;
+  height:250px;
+}
+
+.green{
+  background-color: green !important;
+  border-color: green !important;
+}
