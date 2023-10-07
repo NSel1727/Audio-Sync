@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import React from 'react';
 
-function Logo() {
+const logo = require("../AudioSyncLogo.png");
 
-  return (
-    null
-  );
-}
+function Logo()
+{
+   return(
+     <img className="logo" src={logo}/>
+   );
+};
 
 export default Logo;
