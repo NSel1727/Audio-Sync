@@ -1,6 +1,6 @@
 import React from 'react';
 
-const logo = require("../AudioSyncLogo.png");
+const logo = require("./AudioSyncLogo.png");
 
 function Logo()
 {

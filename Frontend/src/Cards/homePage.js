@@ -14,7 +14,9 @@ function HomePage(props) {
             welcome to
           </div>
           <Logo/>
-
+          <div class="startMusicText">
+            start playing music...
+          </div>
 
         </div>
       </div>

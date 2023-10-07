@@ -40,3 +40,12 @@
 .welcome{
   
 }
+
+.logo{
+  width: 150px;
+  height: 150px;
+}
+
+.startMusicText{
+  margin-top: 5px;
+}
