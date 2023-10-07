@@ -17,7 +17,7 @@ function HomePage(props) {
           <div class="startMusicText">
             start playing music...
           </div>
-
+          <button type="button" class="startButton btn btn-success" onClick={() => onStart()}>Start!</button>
         </div>
       </div>
   );

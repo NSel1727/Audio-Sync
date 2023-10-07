@@ -49,3 +49,9 @@
 .startMusicText{
   margin-top: 5px;
 }
+
+.startButton{
+  background-color: rgb(6, 102, 102) !important;
+  width: 100px;
+  margin-top: 20px;
+}
