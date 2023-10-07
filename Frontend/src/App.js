@@ -1,16 +1,14 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import HomePage from './Cards/homePage';
+import Simulation from './Cards/simulation';
 
 function App() {
 
-  async function runSimulation(){
-    
-  }
+  const [isRunning, setIsRunning] = useState(false);
 
   return (
-    <div className="App">
-      <button onClick={() => test()}>Click Me</button>
-    </div>
+    isRunning ? <Simulation/> : <HomePage setIsRunning={setIsRunning}/>
   );
 }
 
