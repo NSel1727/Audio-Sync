@@ -1,7 +1,5 @@
 import { useState, useEffect} from 'react';
 import Logo from '../Components/Logo';
-import DOMPurify from 'dompurify'
-
 
 function Simulation(props){
 
@@ -9,7 +7,7 @@ function Simulation(props){
   const [currentSong, setCurrentSong] = useState("Nothing is playing atm");
   const [isGreen, setIsGreen] = useState(true);
 
-  //setTableConect([...tableContent, newElement]);
+  //setTableContent([...tableContent, newElement]);
 
   function makeSongHTML(content){
 
