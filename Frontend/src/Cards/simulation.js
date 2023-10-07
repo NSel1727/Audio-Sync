@@ -1,6 +1,7 @@
 import { useState, useEffect} from 'react';
 import Logo from '../Components/Logo';
-import DOMPurify from 'dompurify'
+import Audio from '../Components/Audio';
+import BeatLoader from "react-spinners/BeatLoader";
 
 
 function Simulation(props){
@@ -43,6 +44,8 @@ function Simulation(props){
         <div className='currentSong'>
           Current Song: {currentSong}
         </div>
+        < Audio/>
+        < BeatLoader color="#ADEEEA"/>
         <div className='songTable'>
           <table class="table table-hover">
             <thead>
