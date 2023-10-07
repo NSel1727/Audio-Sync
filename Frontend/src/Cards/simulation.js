@@ -17,8 +17,9 @@ function Simulation(props){
 
   async function onButtonClick(){
     if(isGreen){
+      ///while(true){
       setIsGreen(false);
-      await fetch("/audio");
+      await fetch("/audio").then((res) => console.log(res.text()));
       await fetch("/song").then((res) =>
       res.json().then((data) => {
         let artist = data.artist;
@@ -26,6 +27,7 @@ function Simulation(props){
         setCurrentSong(title);
         setTableContent([...tableContent, makeSongHTML(artist, title)])
       }));
+     // }
     }else{
       props.setIsRunning(false);
     }

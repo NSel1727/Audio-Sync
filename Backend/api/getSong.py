@@ -28,10 +28,10 @@ async def identify_song(audio_file_path):
         print(f"Error occurred during song identification: {str(e)}")
         print('Song not identified.')
         return None
-
+    
 async def main():
     audio_file_path = 'output.wav'
-    await identify_song(audio_file_path)
+    return await identify_song(audio_file_path)
 
 if __name__ == '__main__':
     asyncio.run(main())
