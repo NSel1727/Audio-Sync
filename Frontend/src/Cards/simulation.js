@@ -9,6 +9,12 @@ function Simulation(props){
   const [currentSong, setCurrentSong] = useState("Nothing is playing atm");
   const [isGreen, setIsGreen] = useState(true);
 
+  //setTableConect([...tableContent, newElement]);
+
+  function makeSongHTML(content){
+
+  }
+
   function onButtonClick(){
     if(isGreen){
       setIsGreen(false);
@@ -26,7 +32,7 @@ function Simulation(props){
     return (
       <div className='leftPanel'>
         <Logo/>
-        <button type="button" class={(isGreen ? "green" : "") + " stopButton btn btn-danger"} onClick={() => onButtonClick()}>{isGreen ? "go" : "stop"}</button>
+        <button type="button" class={(isGreen ? "green" : "") + " flagButton btn btn-danger"} onClick={() => onButtonClick()}>{isGreen ? "go" : "stop"}</button>
       </div>
     )
   }
@@ -55,7 +61,7 @@ function Simulation(props){
   }
 
   return (
-    <div class="aligns-items-center justify-content-center card text-center w-50 position-absolute top-50 start-50 translate-middle">
+    <div class="homepage aligns-items-center justify-content-center card text-center w-50 position-absolute top-50 start-50 translate-middle">
       <div class="card-body">
         {leftPanel()}
         {rightPanel()}
