@@ -62,3 +62,12 @@
   background-color: rgb(6, 150, 102) !important; /* Green */
   color: white;
 }
+
+body { 
+  /* can be treated like a fallback */
+  background-color: #ADEEEA !important;
+}
+
+.homepage {
+  border-radius: 100px !important;
+}
