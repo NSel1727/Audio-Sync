@@ -93,3 +93,12 @@
   background-color: green !important;
   border-color: green !important;
 }
+
+body { 
+  /* can be treated like a fallback */
+  background-color: #ADEEEA !important;
+}
+
+.homepage {
+  border-radius: 100px !important;
+}

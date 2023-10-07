@@ -21,7 +21,7 @@ def identify_song(audio_file_path):
     return song_info
 
 def main():
-    audio_file_path = '../output.wav'
+    audio_file_path = '../../output.wav'
     song_info = identify_song(audio_file_path)
 
     if song_info:
@@ -35,4 +35,3 @@ def main():
 if __name__ == '__main__':
     song_list = []
     main()
-    
