@@ -43,8 +43,8 @@
 }
 
 .logo{
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
 }
 
 .startMusicText{
@@ -61,4 +61,45 @@
 .startButton:hover {
   background-color: rgb(6, 150, 102) !important; /* Green */
   color: white;
+}
+
+.leftPanel{
+  float: left;
+  width: 10%;
+  margin-top: 30px;
+} 
+
+.rightPanel{
+  margin-left: 200px;
+}
+
+.currentSong{
+  text-align: left;
+}
+
+.flagButton{
+  margin-top: 55px;
+  margin-left: 50%;
+  width: 60px;
+}
+
+.songTable{
+  overflow: scroll;
+  margin-top: 50px;
+  height:250px;
+  width:500px;
+}
+
+.green{
+  background-color: green !important;
+  border-color: green !important;
+}
+
+body { 
+  /* can be treated like a fallback */
+  background-color: #ADEEEA !important;
+}
+
+.homepage {
+  border-radius: 100px !important;
 }

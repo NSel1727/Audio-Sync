@@ -10,11 +10,11 @@ function App() {
   return (
     isRunning ? 
       <div className="background">
-        <Simulation setIsRunning={setIsRunning}/>
+        <Simulation isRunning={isRunning} setIsRunning={setIsRunning}/>
       </div> 
       : 
       <div className="background">
-        <HomePage setIsRunning={setIsRunning}/>
+        <HomePage isRunning={isRunning} setIsRunning={setIsRunning}/>
       </div>
   );
 }
