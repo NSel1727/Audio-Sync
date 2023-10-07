@@ -103,3 +103,9 @@ body {
 .homepage {
   border-radius: 100px !important;
 }
+
+.loader{
+  margin-right: 50px;
+  margin-top: 25px;
+  margin-bottom: -50px;
+}
