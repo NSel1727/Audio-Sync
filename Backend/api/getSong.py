@@ -17,7 +17,10 @@ async def identify_song(audio_file_path):
             artist = song_info['track']['subtitle']
             title = song_info['track']['title']
             print(f'Identified Song: {artist} - {title}')
-            return song_info
+            return {
+                "artist": artist,
+                "title" : title
+            }
         else:
             print('Song not identified.')
             return None

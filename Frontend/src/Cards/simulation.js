@@ -1,6 +1,5 @@
 import { useState, useEffect} from 'react';
 import Logo from '../Components/Logo';
-import Audio from '../Components/Audio';
 import BeatLoader from "react-spinners/BeatLoader";
 
 
@@ -12,18 +11,21 @@ function Simulation(props){
 
   //setTableContent([...tableContent, newElement]);
 
-  function makeSongHTML(content){
-
+  function makeSongHTML(artist, title){
+    return <tr><td>{title}</td><td>{artist}</td></tr>
   }
 
-  function onButtonClick(){
+  async function onButtonClick(){
     if(isGreen){
       setIsGreen(false);
-      fetch("/audio").then((res) =>
-            res.json().then((data) => {
-                console.log(data);
-            })
-        );
+      await fetch("/audio");
+      await fetch("/song").then((res) =>
+      res.json().then((data) => {
+        let artist = data.artist;
+        let title = data.title;
+        setCurrentSong(title);
+        setTableContent([...tableContent, makeSongHTML(artist, title)])
+      }));
     }else{
       props.setIsRunning(false);
     }
@@ -33,7 +35,7 @@ function Simulation(props){
     return (
       <div className='leftPanel'>
         <Logo/>
-        <button type="button" class={(isGreen ? "green" : "") + " flagButton btn btn-danger"} onClick={() => onButtonClick()}>{isGreen ? "go" : "stop"}</button>
+        <button type="button" class={(isGreen ? "green" : "") + " flagButton btn btn-danger"} onClick={async () => onButtonClick()}>{isGreen ? "go" : "stop"}</button>
       </div>
     )
   }

@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Logo from '../Components/Logo';
 
 function HomePage(props) {
