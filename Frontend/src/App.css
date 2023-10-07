@@ -38,7 +38,8 @@
 }
 
 .welcome{
-  
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 .logo{
@@ -53,5 +54,11 @@
 .startButton{
   background-color: rgb(6, 102, 102) !important;
   width: 100px;
-  margin-top: 20px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.startButton:hover {
+  background-color: rgb(6, 150, 102) !important; /* Green */
+  color: white;
 }

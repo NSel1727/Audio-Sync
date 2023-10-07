@@ -8,7 +8,14 @@ function App() {
   const [isRunning, setIsRunning] = useState(false);
 
   return (
-    isRunning ? <Simulation/> : <HomePage setIsRunning={setIsRunning}/>
+    isRunning ? 
+      <div className="background">
+        <Simulation setIsRunning={setIsRunning}/>
+      </div> 
+      : 
+      <div className="background">
+        <HomePage setIsRunning={setIsRunning}/>
+      </div>
   );
 }
 
