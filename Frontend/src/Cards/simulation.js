@@ -6,7 +6,7 @@ import BeatLoader from "react-spinners/BeatLoader";
 function Simulation(props){
 
   const [tableContent, setTableContent] = useState([]);
-  const [currentSong, setCurrentSong] = useState("Nothing is playing atm");
+  const [currentSong, setCurrentSong] = useState("Listening now...");
   const [isGreen, setIsGreen] = useState(true);
 
   //setTableContent([...tableContent, newElement]);
