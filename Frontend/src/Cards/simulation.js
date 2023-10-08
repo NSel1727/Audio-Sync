@@ -7,7 +7,7 @@ function Simulation(props){
 
   const [tableContent, setTableContent] = useState([]);
   const [currentSong, setCurrentSong] = useState("Listening now...");
-  const [isGreen, setIsGreen] = useState(true);
+  const [buttonState, setButtonState] = useState(0);
 
   function makeSongHTML(artist, title, imgLink, playlistLink){
     return <tr><td>{title}</td><td>{artist}</td><td>{<img className="spotImg" src={imgLink}></img>}</td><td><a href={playlistLink}>Link</a></td></tr>
@@ -15,9 +15,9 @@ function Simulation(props){
 
   async function onButtonClick(){
     let cur = currentSong;
-    if(isGreen){
+    if(buttonState == 0){
         while(props.isRunning){
-          setIsGreen(false);
+          setButtonState(1);
           await fetch("/audio").then((res) => console.log(res.text()));
           await fetch("/playlist").then((res) =>
           res.json().then((data) => {
@@ -38,6 +38,9 @@ function Simulation(props){
             }
           }));
         }
+    }else if(buttonState == 1){
+      
+      setButtonState(2);
     }else{
       console.log(tableContent)
       props.setIsRunning(false);
@@ -48,7 +51,7 @@ function Simulation(props){
     return (
       <div className='leftPanel'>
         <Logo/>
-        <button type="button" class={(isGreen ? "green" : "") + " flagButton btn btn-danger"} onClick={async () => onButtonClick()}>{isGreen ? "go" : "stop"}</button>
+        <button type="button" className={((buttonState) == 0 ? "green" : ((buttonState == 1) ? "" + currentSong : "blue")) + " flagButton btn btn-danger"} onClick={async () => onButtonClick()}>{(buttonState == 0) ? "Go" : ((buttonState == 1) ? "Stop" : "Close")}</button>
       </div>
     )
   }
@@ -57,9 +60,9 @@ function Simulation(props){
     return (
       <div className='rightPanel'>
         <div className='currentSong'>
-          Current Song: {currentSong}
+         {(buttonState) == 0 ? "Click Go To Begin" : ((buttonState == 1) ? "Current Song: " + currentSong : "Final List")}
         </div>
-        {isGreen ? null : <div className='loader'>< BeatLoader color="#ADEEEA"/></div>}
+        {(buttonState != 1) ? null : <div className='loader'>< BeatLoader color="#ADEEEA"/></div>}
         <div className='songTable'>
           <table class="table table-hover">
             <thead>

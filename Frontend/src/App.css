@@ -80,7 +80,7 @@
 .flagButton{
   margin-top: 55px;
   margin-left: 50%;
-  width: 60px;
+  width: 68px;
 }
 
 .songTable{
@@ -93,6 +93,11 @@
 .green{
   background-color: green !important;
   border-color: green !important;
+}
+
+.blue{
+  background-color: blue !important;
+  border-color: blue !important;
 }
 
 body { 
@@ -118,3 +123,4 @@ body {
 .testing{
   padding-right: 100px;
 }
+
