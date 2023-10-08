@@ -14,6 +14,7 @@ function Simulation(props){
   }
 
   async function onButtonClick(){
+    let cur = currentSong;
     if(isGreen){
         while(props.isRunning){
           setIsGreen(false);
@@ -26,8 +27,9 @@ function Simulation(props){
               let imgLink = data.imgLink;
               let playlistLink = data.playlistLink;
 
-              if(title != currentSong){
+              if(title != cur){
                 setCurrentSong(title);
+                cur = title;
                 setTableContent(oldTable => [...oldTable, makeSongHTML(artist, title, imgLink, playlistLink)])
               }
 
@@ -62,10 +64,10 @@ function Simulation(props){
           <table class="table table-hover">
             <thead>
               <tr>
-                <th>Song Name</th>
+                <th>Song</th>
                 <th>Artist</th>
-                <th>Album Image</th>
-                <th>Spotify Link</th>
+                <th>Image</th>
+                <th>Link</th>
               </tr>
             </thead>
             <tbody>
