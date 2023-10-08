@@ -2,18 +2,24 @@ import sounddevice as sd
 import numpy as np
 import wavio
 
-RATE = 44100  # Sample rate
-CHANNELS = 1  # Mono
-DURATION = 5  # Seconds
-FORMAT = np.int16  # Similar to pyaudio.paInt16
 
-print("Recording...")
+def main():
 
-# Record audio
-recording = sd.rec(int(DURATION * RATE), samplerate=RATE, channels=CHANNELS, dtype=FORMAT)
-sd.wait()  # Wait for the recording to finish
+    RATE = 44100  # Sample rate
+    CHANNELS = 1  # Mono
+    DURATION = 5  # Seconds
+    FORMAT = np.int16 #Like pyaudio, but using sounddevice since it automatically accounts for the device's default microphone.
 
-print("Finished recording")
+    print("Recording...")
 
-# Save as a WAV file
-wavio.write("output.wav", recording, RATE, sampwidth=2)  # sampwidth=2 -> 16 bits
+    # Record audio
+    recording = sd.rec(int(DURATION * RATE), samplerate=RATE, channels=CHANNELS, dtype=FORMAT)
+    sd.wait()  # Wait for the recording to finish
+
+    print("Finished recording")
+
+    # Save as a WAV file
+    wavio.write("output.wav", recording, RATE, sampwidth=2)  # sampwidth=2 -> 16 bits
+
+if __name__ == '__main__':
+    main()
