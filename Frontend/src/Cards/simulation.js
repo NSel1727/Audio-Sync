@@ -12,7 +12,7 @@ function Simulation(props){
   //setTableContent([...tableContent, newElement]);
 
   function makeSongHTML(artist, title, imgLink, playlistLink){
-    return <tr><td>{title}</td><td>{artist}</td><td>{<img src={imgLink}></img>}</td><td>{playlistLink}</td></tr>
+    return <tr><td>{title}</td><td>{artist}</td><td>{<img className="spotImg" src={imgLink}></img>}</td><td>{playlistLink}</td></tr>
   }
 
   async function onButtonClick(){
@@ -58,6 +58,8 @@ function Simulation(props){
               <tr>
                 <th>Song Name</th>
                 <th>Artist</th>
+                <th>Album Image</th>
+                <th>Spotify Link</th>
               </tr>
             </thead>
             <tbody>

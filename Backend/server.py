@@ -14,7 +14,7 @@ def callAudioFunc():
     return ""
 
 @app.route('/playlist')
-def callSongFunc():
+def callPlaylistFunc():
     # Calls the generatePlaylist function
     from api import generatePlaylist
     return asyncio.run(generatePlaylist.main())

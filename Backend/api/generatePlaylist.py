@@ -8,14 +8,10 @@ from pydub import AudioSegment
 import requests
 from PIL import Image
 from io import BytesIO
-from dotenv import load_dotenv, find_dotenv
-import os
-
-load_dotenv(find_dotenv())
 
 # API, SPOTFIY DEVELOPERS
-SPOTIPY_CLIENT_ID = os.environ.get("CLIENT_ID")
-SPOTIPY_CLIENT_SECRET = os.environ.get("CLIENT_SECRET")
+SPOTIPY_CLIENT_ID = 'e7d5caaa43154afeb3d2406aa1fdc1f7'
+SPOTIPY_CLIENT_SECRET = 'd3d873b3d00c49daabd2bf8aa80fac6b'
 SPOTIPY_REDIRECT_URI = 'http://localhost:8888/callback'
 
 # Auth Manage
@@ -25,7 +21,6 @@ sp_auth_manager = SpotifyOAuth(
     redirect_uri=SPOTIPY_REDIRECT_URI,
     scope='playlist-modify-public' 
 )
-
 sp = spotipy.Spotify(auth_manager=sp_auth_manager)
 
 async def identify_song(audio_file_path):
@@ -68,8 +63,7 @@ def create_playlist(username, playlist_name, track_uris):
 async def main():
     audio_file_path = 'output.wav'
     identified_song = await identify_song(audio_file_path)
-    
-    if identified_song != None:
+    if identified_song:
         # search all of spotify for a song's URI
         query = f"artist:{identified_song['artist']} track:{identified_song['title']}"
         search_result = sp.search(query, type='track', limit=1)
@@ -79,9 +73,9 @@ async def main():
             cover_art_url = track['album']['images'][0]['url']  # this assumes a song is recognized, and displays the cover art, if no song is recognized we should return None
             
             #Using Image, downloads the cover art, displays it with default image viewing software, would need to connect and display on frontend web app instead changes required
-            response = requests.get(cover_art_url)
-            img = Image.open(BytesIO(response.content))
-            img.show()
+            #response = requests.get(cover_art_url)
+            #img = Image.open(BytesIO(response.content))
+            #img.show()
 
             # Creates a playlist and add the identified songs to it
             username = '9poogizcvl3fekpo9eot8n8uq'
@@ -89,9 +83,11 @@ async def main():
             playlist_link = create_playlist(username, playlist_name, [track_uri])
             print(f'Playlist Link: {playlist_link}')
 
+            print(identified_song)
+
             res = {
-                "title": identified_song.title,
-                "artist": identified_song.artist,
+                "title": identified_song['title'],
+                "artist": identified_song['artist'],
                 "imgLink": cover_art_url,
                 "playlistLink": playlist_link
             }
@@ -99,9 +95,7 @@ async def main():
             return res
         else:
             print(f"Song {identified_song['artist']} - {identified_song['title']} not found on Spotify.")
-            return None
 
 
 if __name__ == '__main__':
     asyncio.run(main())
-

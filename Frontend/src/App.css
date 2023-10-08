@@ -70,7 +70,7 @@
 } 
 
 .rightPanel{
-  margin-left: 200px;
+  margin-left: 150px;
 }
 
 .currentSong{
@@ -108,4 +108,9 @@ body {
   margin-right: 50px;
   margin-top: 25px;
   margin-bottom: -50px;
+}
+
+.spotImg{
+  width: 40px;
+  height: 40px;
 }
