@@ -9,7 +9,7 @@ function App() {
 
   return (
     isRunning ? 
-      <div className="background">
+      <div className="wider background">
         <Simulation isRunning={isRunning} setIsRunning={setIsRunning}/>
       </div> 
       : 

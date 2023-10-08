@@ -9,10 +9,8 @@ function Simulation(props){
   const [currentSong, setCurrentSong] = useState("Listening now...");
   const [isGreen, setIsGreen] = useState(true);
 
-  //setTableContent([...tableContent, newElement]);
-
   function makeSongHTML(artist, title, imgLink, playlistLink){
-    return <tr><td>{title}</td><td>{artist}</td><td>{<img className="spotImg" src={imgLink}></img>}</td><td>{playlistLink}</td></tr>
+    return <tr><td>{title}</td><td>{artist}</td><td>{<img className="spotImg" src={imgLink}></img>}</td><td><a href={playlistLink}>Link</a></td></tr>
   }
 
   async function onButtonClick(){
@@ -80,7 +78,7 @@ function Simulation(props){
   }
 
   return (
-    <div class="homepage aligns-items-center justify-content-center card text-center w-50 position-absolute top-50 start-50 translate-middle">
+    <div class="testing homepage aligns-items-center justify-content-center card text-center w-50 position-absolute top-50 start-50 translate-middle">
       <div class="card-body">
         {leftPanel()}
         {rightPanel()}
