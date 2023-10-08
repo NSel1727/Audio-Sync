@@ -8,10 +8,14 @@ from pydub import AudioSegment
 import requests
 from PIL import Image
 from io import BytesIO
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # API, SPOTFIY DEVELOPERS
-SPOTIPY_CLIENT_ID = 'e7d5caaa43154afeb3d2406aa1fdc1f7'
-SPOTIPY_CLIENT_SECRET = 'd3d873b3d00c49daabd2bf8aa80fac6b'
+SPOTIPY_CLIENT_ID = os.getenv('SPOTIPY_CLIENT_ID')
+SPOTIPY_CLIENT_SECRET = os.getenv('SPOTIPY_CLIENT_SECRET')
 SPOTIPY_REDIRECT_URI = 'http://localhost:8888/callback'
 
 # Auth Manage
