@@ -21,5 +21,6 @@ def main():
     # Save as a WAV file
     wavio.write("output.wav", recording, RATE, sampwidth=2)  # sampwidth=2 -> 16 bits
 
+
 if __name__ == '__main__':
     main()
