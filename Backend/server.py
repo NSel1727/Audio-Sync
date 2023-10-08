@@ -13,11 +13,11 @@ def callAudioFunc():
     createAudio.main()
     return ""
 
-@app.route('/song')
+@app.route('/playlist')
 def callSongFunc():
-    # Calls the getSong functionole
-    from api import getSong
-    return asyncio.run(getSong.main())
+    # Calls the generatePlaylist function
+    from api import generatePlaylist
+    return asyncio.run(generatePlaylist.main())
 
 # Running app
 if __name__ == '__main__':

@@ -11,23 +11,26 @@ function Simulation(props){
 
   //setTableContent([...tableContent, newElement]);
 
-  function makeSongHTML(artist, title){
-    return <tr><td>{title}</td><td>{artist}</td></tr>
+  function makeSongHTML(artist, title, imgLink, playlistLink){
+    return <tr><td>{title}</td><td>{artist}</td><td>{<img src={imgLink}></img>}</td><td>{playlistLink}</td></tr>
   }
 
   async function onButtonClick(){
     if(isGreen){
-      while(true){
-      setIsGreen(false);
-      await fetch("/audio").then((res) => console.log(res.text()));
-      await fetch("/song").then((res) =>
-      res.json().then((data) => {
-        let artist = data.artist;
-        let title = data.title;
-        setCurrentSong(title);
-        setTableContent([...tableContent, makeSongHTML(artist, title)])
-      }));
-     }
+        while(true){
+          setIsGreen(false);
+          await fetch("/audio").then((res) => console.log(res.text()));
+          await fetch("/playlist").then((res) =>
+          res.json().then((data) => {
+            let artist = data.artist;
+            let title = data.title;
+            let imgLink = data.imgLink;
+            let playlistLink = data.playlistLink;
+
+            setCurrentSong(title);
+            setTableContent([...tableContent, makeSongHTML(artist, title, imgLink, playlistLink)])
+          }));
+        }
     }else{
       props.setIsRunning(false);
     }

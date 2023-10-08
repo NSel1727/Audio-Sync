@@ -8,10 +8,14 @@ from pydub import AudioSegment
 import requests
 from PIL import Image
 from io import BytesIO
+from dotenv import load_dotenv, find_dotenv
+import os
+
+load_dotenv(find_dotenv())
 
 # API, SPOTFIY DEVELOPERS
-SPOTIPY_CLIENT_ID = 'e7d5caaa43154afeb3d2406aa1fdc1f7'
-SPOTIPY_CLIENT_SECRET = 'd3d873b3d00c49daabd2bf8aa80fac6b'
+SPOTIPY_CLIENT_ID = os.environ.get("CLIENT_ID")
+SPOTIPY_CLIENT_SECRET = os.environ.get("CLIENT_SECRET")
 SPOTIPY_REDIRECT_URI = 'http://localhost:8888/callback'
 
 # Auth Manage
@@ -21,6 +25,7 @@ sp_auth_manager = SpotifyOAuth(
     redirect_uri=SPOTIPY_REDIRECT_URI,
     scope='playlist-modify-public' 
 )
+
 sp = spotipy.Spotify(auth_manager=sp_auth_manager)
 
 async def identify_song(audio_file_path):
@@ -63,7 +68,8 @@ def create_playlist(username, playlist_name, track_uris):
 async def main():
     audio_file_path = 'output.wav'
     identified_song = await identify_song(audio_file_path)
-    if identified_song:
+    
+    if identified_song != None:
         # search all of spotify for a song's URI
         query = f"artist:{identified_song['artist']} track:{identified_song['title']}"
         search_result = sp.search(query, type='track', limit=1)
@@ -82,8 +88,18 @@ async def main():
             playlist_name = 'Audio-Sync'
             playlist_link = create_playlist(username, playlist_name, [track_uri])
             print(f'Playlist Link: {playlist_link}')
+
+            res = {
+                "title": identified_song.title,
+                "artist": identified_song.artist,
+                "imgLink": cover_art_url,
+                "playlistLink": playlist_link
+            }
+
+            return res
         else:
             print(f"Song {identified_song['artist']} - {identified_song['title']} not found on Spotify.")
+            return None
 
 
 if __name__ == '__main__':
