@@ -1,6 +1,6 @@
 # Audio Sync Project
 
-AudioSync is a refined web application that engages device microphones to elegantly capture ambient audio. When a recognizable tune graces the air, it swiftly identifies the melody using the adept Shazam API, and graciously displays it on the site's frontend view. As the musical journey unfolds, multiple songs find their way to a meticulously crafted table on the website. The crescendo of this harmonious experience manifests as personalized Spotify playlists, created seamlessly from the symphony of songs that were captured and recognized, orchestrating a melodious bridge between the physical and digital realms of music.
+AudioSync is a refined web application that engages device microphones to elegantly capture ambient audio. When a recognizable tune graces the air, it swiftly identifies the melody using the adept Shazam API, and graciously displays it on the site's frontend view. As the musical journey unfolds, multiple songs find their way to a meticulously crafted table on the website. The crescendo of this harmonious experience manifests as personalized Spotify links, created seamlessly from the symphony of songs that were captured and recognized, orchestrating a melodious bridge between the physical and digital realms of music.
 
 ## Getting Started
 
@@ -18,7 +18,7 @@ git clone https://github.com/your-username/audio-sync.git
 cd audio-sync
 
 
-2. Install the required Python libraries
+2. Install the required Python libraries (This will also install Flask framework)
 pip install -r requirements.txt
 
 3. Install JavaScript dependencies
