@@ -7,7 +7,7 @@ def main():
 
     RATE = 44100  # Sample rate
     CHANNELS = 1  # Mono
-    DURATION = 10  # Seconds
+    DURATION = 5  # Seconds
     FORMAT = np.int16 #Like pyaudio, but using sounddevice since it automatically accounts for the device's default microphone.
 
     print("Recording...")
