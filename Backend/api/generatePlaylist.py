@@ -95,6 +95,9 @@ async def main():
             return res
         else:
             print(f"Song {identified_song['artist']} - {identified_song['title']} not found on Spotify.")
+            return {}
+    else:
+        return {}
 
 
 if __name__ == '__main__':
