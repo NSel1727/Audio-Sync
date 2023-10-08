@@ -5,10 +5,9 @@ import asyncio
 # Initializing flask app
 app = Flask(__name__)
   
-# Route for seeing a data
 @app.route('/audio')
 def callAudioFunc():
-    # Calls the callAudio function
+    # Calls the createAudio function
     from api import createAudio
     createAudio.main()
     return ""

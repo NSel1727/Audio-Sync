@@ -36,6 +36,3 @@ async def main():
 if __name__ == '__main__':
     asyncio.run(main())
 
-
-
-#update 3, after must change return types to something usable by frontend.

@@ -39,7 +39,6 @@ function Simulation(props){
           }));
         }
     }else if(buttonState == 1){
-      
       setButtonState(2);
     }else{
       console.log(tableContent)
