@@ -10,6 +10,7 @@ app = Flask(__name__)
 def callAudioFunc():
     # Calls the callAudio function
     from api import createAudio
+    createAudio.main()
     return ""
 
 @app.route('/song')
